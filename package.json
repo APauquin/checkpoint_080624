@@ -4,9 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "docker-compose up --build"
+    "start": "docker compose up --build"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.4"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.10.8",
+    "next": "^14.2.4",
+    "react": "^18.3.1",
+    "tailwind": "^4.0.0"
+  }
 }
