@@ -13,7 +13,11 @@ export const GET_COUNTRIES = gql`
 `;
 
 const CountryList: React.FC = () => {
-  const { data } = useQuery(GET_COUNTRIES);
+  const { loading, error, data } = useQuery(GET_COUNTRIES);
+
+  if (loading) return <p className="loading">Loading...</p>;
+  if (error) return <p className="error">Error: {error.message}</p>;
+  if (!data || !data.countries) return <p className="error">No data available</p>;
 
   return (
     <ul className="country-list">

@@ -19,10 +19,15 @@ interface CountryDetailProps {
 }
 
 const CountryDetail: React.FC<CountryDetailProps> = ({ code }) => {
-  const { data } = useQuery(GET_COUNTRY, {
+  const { loading, error, data } = useQuery(GET_COUNTRY, {
     variables: { code },
     skip: !code,
   });
+
+  if (loading) return <p className="loading">Loading...</p>;
+  if (error) return <p className="error">Error: {error.message}</p>;
+
+  if (!data || !data.country) return <p className="error">No data available</p>;
 
   const { country } = data;
 
